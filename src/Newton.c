@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 12:10:28 by mtoia             #+#    #+#             */
-/*   Updated: 2022/08/26 10:18:37 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/23 19:15:04 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void    rgbnwtn(t_frt *d, double x, double y)
 {
-    if ((y-d->Cy)*(y-d->Cy) < d->Radius)
+    if ((y-d->cy)*(y-d->cy) < d->radius)
         my_mlx_pixel_put(d, d->x, d->y, (0x00FF00));
-    if ((x-d->Cx)*(x-d->Cx) <= d->Radius)
+    if ((x-d->cx)*(x-d->cx) <= d->radius)
         my_mlx_pixel_put(d, d->x, d->y, (0x0000FF));
-    if ((y-d->Cy)*(y-d->Cy) + (x-d->Cx)*(x-d->Cx) < d->Radius)
+    if ((y-d->cy)*(y-d->cy) + (x-d->cx)*(x-d->cx) < d->radius)
         my_mlx_pixel_put(d, d->x, d->y, (0XFF0000));
 }
 
@@ -49,11 +49,11 @@ void	ff(t_frt *d)
                 y = yy * d->inc;
                 if (d->p == 0)
                     rgbnwtn(d, x, y);
-                if (d->p == 1)
+                if (d->p == 1 || d->p == 2)
                 {
                     if (xx * xx + yy * yy > 10)
                         my_mlx_pixel_put(d, d->x, d->y, ((color(d->i, d))));
-                    if ((x-d->Cx)*(x-d->Cx) + (y-d->Cy)*(y-d->Cy) < d->Radius)
+                    if ((x-d->cx)*(x-d->cx) + (y-d->cy)*(y-d->cy) < d->radius)
                     {
                         my_mlx_pixel_put(d, d->x, d->y, (colosr(d->i,0)));
                     }

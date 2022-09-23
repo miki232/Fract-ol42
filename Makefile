@@ -6,7 +6,7 @@
 #    By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/10 13:32:42 by gifulvi           #+#    #+#              #
-#    Updated: 2022/08/13 15:28:57 by mtoia            ###   ########.fr        #
+#    Updated: 2022/09/23 19:31:44 by mtoia            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ C_LGRN = \033[92m
 C_LMGN = \033[95m
 C_END = \033[0m
 
-SRC=  src/Mandelbrot.c src/draw.c src/doubleatoi.c src/main.c src/init.c src/key.c src/Julia.c src/Newton.c \
-		src/color.c src/utils.c
+SRC=  src/Mandelbrot.c src/draw.c src/utils2.c src/main.c src/init.c src/key.c src/Julia.c src/Newton.c \
+		src/color.c src/utils.c src/errors.c
 
 PRINTF = ft_printf
 

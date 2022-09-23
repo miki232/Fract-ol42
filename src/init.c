@@ -6,26 +6,20 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 10:06:39 by mtoia             #+#    #+#             */
-/*   Updated: 2022/08/26 10:17:20 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/23 19:26:26 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-void e_string()
+int	ft_isstring(char *str)
 {
-	printf("ERROR PARAMETERS\nInsert only numbers\n");
-	exit(0);
-}
-
-int ft_isstring(char *str)
-{
-	int count;
+	int	count;
 
 	count = 0;
 	while (str[count] != '\0')
 	{
-		if(ft_isalpha(str[count]))
+		if (ft_isalpha(str[count]))
 			return (0);
 		count++;
 	}
@@ -34,7 +28,7 @@ int ft_isstring(char *str)
 
 void	mand_init(t_frt *d)
 {
-	d->maxiterations = 30;
+	d->maxiterations = 40;
 	d->which_fract = 1;
 	d->inc = 2;
 }
@@ -43,7 +37,7 @@ void	jul_init(t_frt *d, t_args *arg)
 {
 	d->maxiterations = 30;
 	d->which_fract = 2;
-	d->cre =  -0.8;
+	d->cre = -0.8;
 	d->cim = 0.156;
 	if (arg->argc == 3)
 	{
@@ -53,7 +47,7 @@ void	jul_init(t_frt *d, t_args *arg)
 	}
 	if (arg->argc == 4)
 	{
-		if (ft_isstring(arg->argv[2]) && ft_isstring(arg->argv[3]) )
+		if (ft_isstring(arg->argv[2]) && ft_isstring(arg->argv[3]))
 		{
 			d->cre = doubleatoi(arg->argv[2]);
 			d->cim = doubleatoi(arg->argv[3]);
@@ -69,7 +63,7 @@ void	new_init(t_frt *d)
 	d->inc = 1;
 	d->key = 0;
 	d->which_fract = 3;
-	d->Cy = 0;
-	d->Cx = 0;
-	d->Radius = 0.1;
+	d->cy = 0;
+	d->cx = 0;
+	d->radius = 0.1;
 }

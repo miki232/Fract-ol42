@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:27:10 by mtoia             #+#    #+#             */
-/*   Updated: 2022/08/13 15:46:23 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/23 19:12:48 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	zoom(t_frt *data)
 {
-	data->zoc = data->zoc * 1.1; 
+	data->zoc = data->zoc * 1.1;
 	data->zo = data->zo * 1.1;
 	data->fac = data->fac / 1.1;
 	data->key = 1;
@@ -32,14 +32,14 @@ int	zoom(t_frt *data)
 	else if (data->which_fract == 3)
 	{
 		ff(data);
-		data->maxiterations +=0.1;
+		data->maxiterations += 0.1;
 	}
 	return (0);
 }
 
 int	zoomout(t_frt *data)
 {
-	data->zoc = data->zoc /1.1;
+	data->zoc = data->zoc / 1.1;
 	data->zo = data->zo / 1.1;
 	data->fac = data->fac * 1.1;
 	data->key = 1;
@@ -59,7 +59,6 @@ int	zoomout(t_frt *data)
 		ff(data);
 		data->maxiterations -= 0.1;
 	}
-	
 	return (0);
 }
 
@@ -74,7 +73,6 @@ int	left(t_frt *data)
 	}
 	data->mmx = data->mmx + 0.1 / data->zo;
 	data->movex = data->movex + 0.1 / data->zo;
-	
 	if (data->which_fract == 1)
 		mandel(data);
 	else if (data->which_fract == 2)
@@ -105,7 +103,7 @@ int	up(t_frt *data)
 	clear(data);
 	if (data->which_fract == 3)
 	{	
-		data->mvy= data->mvy + 0.1 * data->fac;
+		data->mvy = data->mvy + 0.1 * data->fac;
 		ff(data);
 		return (0);
 	}
