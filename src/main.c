@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:57:28 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/23 19:47:49 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 18:24:49 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	init_mlx(t_frt *d)
 
 void	input(t_frt *d, t_args *arg)
 {
-	if (arg->argc == 1 || arg->argc == 5)
+	if (arg->argc == 1 || arg->argc > 4)
 		error();
 	if (!ft_strncmp("Mandelbrot", arg->argv[1], 11))
-		mand_init(d);
+		mand_init(d, arg);
 	else if (!ft_strncmp("Newton", arg->argv[1], 6))
-		new_init(d);
+		new_init(d, arg);
 	else if (!ft_strncmp("Julia", arg->argv[1], 5))
 		jul_init(d, arg);
 	else
@@ -75,6 +75,7 @@ int	main(int argc, char **argv)
 	init_mlx(&d);
 	mlx_hook(d.win_ptr, 2, 1L << 0, keypress, &d);
 	mlx_hook(d.win_ptr, 06, (1L << 6), pro, &d);
+	mlx_hook(d.win_ptr, 17, (1L << 16), ftsclose, &d);
 	mlx_mouse_hook(d.win_ptr, mouseclick, &d);
 	whichfract(&d);
 	mlx_loop(d.mlx_ptr);

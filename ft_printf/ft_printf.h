@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 21:21:07 by mtoia             #+#    #+#             */
-/*   Updated: 2022/06/27 09:41:39 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 18:46:47 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 
 int		ft_printf(const char *str, ...);
-size_t		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 int		ft_putstr(char *str);
 char	*ft_itoa(int num);
 int		ft_printnbr(int n);

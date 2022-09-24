@@ -1,25 +1,22 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/mtoia/Desktop/Fractol-42'
+make: Entering directory `/Users/mtoia/Desktop/Fractol'
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/Mandelbrot.c -o src/Mandelbrot.o
+ 
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/draw.c -o src/draw.o
- 
-clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/doubleatoi.c -o src/doubleatoi.o
- 
+clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/utils2.c -o src/utils2.o
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/main.c -o src/main.o
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/init.c -o src/init.o
- 
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/key.c -o src/key.o
- 
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/Julia.c -o src/Julia.o
- 
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/Newton.c -o src/Newton.o
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/color.c -o src/color.o
 clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/utils.c -o src/utils.o
+clang  -g  -Wall -Wextra -Werror -I mlx/ -c src/errors.c -o src/errors.o
 make -C ./ft_printf
 make -C ./libft
 make -C ./mlx
 mv mlx/libmlx.dylib .
-clang  -g  -Wall -Wextra -Werror  -o fractol src/Mandelbrot.o src/draw.o src/doubleatoi.o src/main.o src/init.o src/key.o src/Julia.o src/Newton.o src/color.o src/utils.o ./libmlx.dylib -framework OpenGL -lm -framework AppKit ft_printf/ft_printf.a libft/libft.a
+clang  -g  -Wall -Wextra -Werror  -o fractol src/Mandelbrot.o src/draw.o src/utils2.o src/main.o src/init.o src/key.o src/Julia.o src/Newton.o src/color.o src/utils.o src/errors.o ./libmlx.dylib -framework OpenGL -lm -framework AppKit ft_printf/ft_printf.a libft/libft.a
 echo "\033[92m➜ [fractol] Program has been Compiled Successfully !\033[0m"
-make: Leaving directory `/Users/mtoia/Desktop/Fractol-42'
+make: Leaving directory `/Users/mtoia/Desktop/Fractol'
  

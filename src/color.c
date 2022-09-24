@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 12:14:55 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/23 19:17:55 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 18:33:26 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ int	colosr(float i, int p)
 	t_rgb	r;
 	int		x;
 
-	if (p == 1)
+	if (p == 2)
 		l.h = 255 - ((int)i * 3);
+	else if (p == 1)
+		l.h = 300 - ((int)i * 3);
 	else
 		l.h = 266 - ((int)i * 10);
 	l.s = 1.0f;
@@ -74,8 +76,9 @@ int	colosr(float i, int p)
 
 int	pal_mkg(int p, int i, t_frt *d)
 {
+	(void)d;
 	if (p == 0)
-		return (color(i, d));
+		return (colosr(i, 2));
 	if (p == 1)
 		return (colosr(i, 1));
 	if (p == 2)

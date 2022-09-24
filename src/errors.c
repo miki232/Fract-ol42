@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:22:22 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/23 19:53:13 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 18:22:13 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,17 @@ void	print_command(void)
 	ft_printf("\n--Use \e[33mW A S D\e[0m or \e[33m'Arrow Keys'\e[0m");
 	ft_printf("for moving the fractal\n");
 	ft_printf("--Use '\e[33m+\e[0m' for zoom\n      \e[33m'-'\e[0m for zoom-out\n");
+}
+
+void	errormand(void)
+{
+	ft_printf("\e[31mERROR PARAMETERS\nInsert only one numbers");
+	ft_printf(" for Max Iteration\nsolo decimali");
+	exit(0);
+}
+
+int	ftsclose(void *data)
+{
+	(void)data;
+	exit(0);
 }

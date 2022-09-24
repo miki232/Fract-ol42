@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:52:11 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/23 19:55:03 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 19:05:54 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,13 @@ typedef struct t_data
 	double		fac;
 	double		cy;
 	double		cx;
-	double		radius;
+	double		ra;
+	double		xx;
+	double		yy;
+	double		incy;
+	double		incx;
+	double		y2;
+	double		x2;
 }	t_frt;
 
 typedef struct s_rgb
@@ -105,16 +111,19 @@ typedef enum e_keys
 void	input(t_frt *d, t_args *arg);
 void	init_para(t_frt *d);
 void	init_mlx(t_frt *d);
-void	mand_init(t_frt *d);
+void	mand_init(t_frt *d, t_args *arg);
 void	jul_init(t_frt *d, t_args *arg);
-void	new_init(t_frt *d);
+void	new_init(t_frt *d, t_args *arg);
 void	whichfract(t_frt *d);
 void	my_mlx_pixel_put(t_frt *data, int x, int y, int color);
 void	put2screen(t_frt *data);
 void	error(void);
 void	print_command(void);
 void	e_string(void);
+void	errormand(void);
 void	ff(t_frt *d);
+int		ftsclose(void *data);
+int		check(char *str);
 int		keypress(int key, t_frt *data);
 int		mandel(t_frt *d);
 int		julia(t_frt *d);
