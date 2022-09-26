@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:57:28 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/24 18:24:49 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:51:18 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_para(t_frt *d)
 	d->key = 0;
 	d->fac = 1.00;
 	d->zoc = 0.9;
-	d->zo = 1.0;
+	d->zo = 0.9;
 	d->mmx = -0.5;
 	d->mouse_x = 0;
 	d->mouse_y = 0;
@@ -52,6 +52,8 @@ void	init_mlx(t_frt *d)
 void	input(t_frt *d, t_args *arg)
 {
 	if (arg->argc == 1 || arg->argc > 4)
+		error();
+	if (arg->argc == 2)
 		error();
 	if (!ft_strncmp("Mandelbrot", arg->argv[1], 11))
 		mand_init(d, arg);

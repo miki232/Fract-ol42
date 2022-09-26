@@ -6,14 +6,13 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 21:21:07 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/24 18:46:47 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:31:16 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <string.h>

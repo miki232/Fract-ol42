@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:52:11 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/24 19:05:54 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:51:05 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
-# include <stdio.h>
 # include <math.h>
+# include <stdlib.h>
 
 typedef struct t_data
 {
@@ -122,6 +122,7 @@ void	print_command(void);
 void	e_string(void);
 void	errormand(void);
 void	ff(t_frt *d);
+void	errornewt(void);
 int		ftsclose(void *data);
 int		check(char *str);
 int		keypress(int key, t_frt *data);

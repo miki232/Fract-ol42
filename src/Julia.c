@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 11:05:31 by mtoia             #+#    #+#             */
-/*   Updated: 2022/08/26 10:23:42 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:50:50 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ int	julia(t_frt *d)
 	}
 	put2screen(d);
 	return (0);
+}
+
+void	errornewt(void)
+{
+	ft_printf("\e[31mERROR PARAMETERS\nInsert only one numbers");
+	ft_printf(" for Max Iteration\nonly decimals from 5 to 30\n");
+	exit(0);
 }

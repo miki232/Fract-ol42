@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 10:06:39 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/24 19:05:54 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:50:46 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void	jul_init(t_frt *d, t_args *arg)
 	d->cim = 0.156;
 	if (arg->argc == 3)
 	{
-		ft_printf("Error missing parameters\nInsert 2 parameters\n");
+		ft_printf("\e[31mError missing parameters\nInsert 2 parameters");
+		ft_printf(", only numbers are allowed\n");
 		ft_printf("Ex. /fractol Julia (*Real num*) (*Imaginary num*)\n");
 		exit(0);
 	}
@@ -87,11 +88,17 @@ void	jul_init(t_frt *d, t_args *arg)
 
 void	new_init(t_frt *d, t_args *arg)
 {
-	if (arg->argc > 2)
-		error();
 	d->xx = 0;
 	d->yy = 0;
-	d->maxiterations = 25;
+	(void)arg;
+	if (arg->argc == 3)
+	{
+		if (checkmand(arg->argv[2]))
+			errornewt();
+		else if (doubleatoi(arg->argv[2]) < 5 || doubleatoi(arg->argv[2]) > 30)
+			errornewt();
+		d->maxiterations = doubleatoi(arg->argv[2]);
+	}
 	d->inc = 1;
 	d->key = 0;
 	d->which_fract = 3;
