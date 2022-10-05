@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 10:06:39 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/26 15:50:46 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/10/05 11:10:04 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,61 +43,62 @@ int	check(char *str)
 	return (0);
 }
 
-void	mand_init(t_frt *d, t_args *arg)
+void	mand_init(t_frt *d)
 {
-	if (arg->argc == 3)
+	if (d->arg.argc == 4)
 	{
-		if (checkmand(arg->argv[2]))
+		if (checkmand(d->arg.argv[2]))
 			errormand();
-		else if (doubleatoi(arg->argv[2]) < 5 || doubleatoi(arg->argv[2]) > 200)
+		else if (doubleatoi(d->arg.argv[2]) < 5
+			|| doubleatoi(d->arg.argv[2]) > 200)
 			errormand();
-		d->maxiterations = doubleatoi(arg->argv[2]);
+		d->maxiterations = doubleatoi(d->arg.argv[2]);
 	}
-	else if (arg->argc > 3)
+	else if (d->arg.argc > 5)
 		errormand();
 	else
 		d->maxiterations = 40;
 	d->which_fract = 1;
-	d->inc = 2;
+	d->inc = ft_atoi(d->arg.argv[3]);
 }
 
-void	jul_init(t_frt *d, t_args *arg)
+void	jul_init(t_frt *d)
 {
 	d->maxiterations = 30;
 	d->which_fract = 2;
 	d->cre = -0.8;
 	d->cim = 0.156;
-	if (arg->argc == 3)
+	if (d->arg.argc == 3)
 	{
 		ft_printf("\e[31mError missing parameters\nInsert 2 parameters");
 		ft_printf(", only numbers are allowed\n");
 		ft_printf("Ex. /fractol Julia (*Real num*) (*Imaginary num*)\n");
 		exit(0);
 	}
-	if (arg->argc == 4)
+	if (d->arg.argc == 4)
 	{
-		if (!check(arg->argv[2]) && !check(arg->argv[3]))
+		if (!check(d->arg.argv[2]) && !check(d->arg.argv[3]))
 		{
-			d->cre = doubleatoi(arg->argv[2]);
-			d->cim = doubleatoi(arg->argv[3]);
+			d->cre = doubleatoi(d->arg.argv[2]);
+			d->cim = doubleatoi(d->arg.argv[3]);
 		}
 		else
 			e_string();
 	}
 }
 
-void	new_init(t_frt *d, t_args *arg)
+void	new_init(t_frt *d)
 {
 	d->xx = 0;
 	d->yy = 0;
-	(void)arg;
-	if (arg->argc == 3)
+	if (d->arg.argc == 3)
 	{
-		if (checkmand(arg->argv[2]))
+		if (checkmand(d->arg.argv[2]))
 			errornewt();
-		else if (doubleatoi(arg->argv[2]) < 5 || doubleatoi(arg->argv[2]) > 30)
+		else if (doubleatoi(d->arg.argv[2]) < 5
+			|| doubleatoi(d->arg.argv[2]) > 30)
 			errornewt();
-		d->maxiterations = doubleatoi(arg->argv[2]);
+		d->maxiterations = doubleatoi(d->arg.argv[2]);
 	}
 	d->inc = 1;
 	d->key = 0;

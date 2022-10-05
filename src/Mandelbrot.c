@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 10:34:48 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/23 19:20:52 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/10/05 11:11:18 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void	calc(t_frt *d)
 {
-	d->ore = d->newre;
-	d->oim = d->newim;
-	d->newre = d->ore * d->ore - d->oim * d->oim + d->pr;
-	d->newim = d->inc * d->ore * d->oim + d->pi;
+	if (d->arg.argc == 4)
+	{
+		if (ft_atoi(d->arg.argv[3]) == 2)
+			clac2(d);
+		if (ft_atoi(d->arg.argv[3]) == 3)
+			clac3(d);
+		if (ft_atoi(d->arg.argv[3]) == 5)
+			clac5(d);
+	}
+	else
+		errormand();
 }
 
 void	calc1(t_frt *d)

@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:22:22 by mtoia             #+#    #+#             */
-/*   Updated: 2022/09/26 15:53:42 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/10/05 11:12:09 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	error(void)
 {
 	ft_printf("\n---------\e[1;34mFractal list\e[0m---------\n");
-	ft_printf("\n\e[35mMandelbrot \e[36m*Max Iteration*\e[0m\n");
+	ft_printf("\n\e[35mMandelbrot \e[36m*Max Iteration*\e[0m \e[36m*Index of POWER*\e[0m\n");
 	ft_printf("\n\e[35mJulia      \e[36m*Real Number* *Imaginary Number*\e[0m\n");
 	ft_printf("\n\e[35mNewton     \e[36m*Max Iteration*\e[0m");
 	print_command();
-	ft_printf("\n\e[1;37mExample: ./fractol Mandelbrot 30\n");
+	ft_printf("\n\e[1;37mExample: ./fractol Mandelbrot 30 2\n");
 	ft_printf("\n\e[1;37mExample: ./fractol Julia -0.70176 -0.3842\n");
 	exit(0);
 }
