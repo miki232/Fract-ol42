@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:52:11 by mtoia             #+#    #+#             */
-/*   Updated: 2022/10/05 11:10:15 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:51:05 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 # include "../ft_printf/ft_printf.h"
 # include <math.h>
 # include <stdlib.h>
-
-typedef struct t_arg
-{
-	int		argc;
-	char	**argv;
-}	t_args;
 
 typedef struct t_data
 {
@@ -69,7 +63,6 @@ typedef struct t_data
 	double		incx;
 	double		y2;
 	double		x2;
-	t_args		arg;
 }	t_frt;
 
 typedef struct s_rgb
@@ -85,6 +78,12 @@ typedef struct s_hsl
 	float	s;
 	float	l;
 }	t_hsl;
+
+typedef struct t_arg
+{
+	int		argc;
+	char	**argv;
+}	t_args;
 
 typedef enum e_keys
 {
@@ -109,12 +108,12 @@ typedef enum e_keys
 	ON_DESTROY = 17
 }	t_keys;
 
-void	input(t_frt *d);
+void	input(t_frt *d, t_args *arg);
 void	init_para(t_frt *d);
 void	init_mlx(t_frt *d);
-void	mand_init(t_frt *d);
-void	jul_init(t_frt *d);
-void	new_init(t_frt *d);
+void	mand_init(t_frt *d, t_args *arg);
+void	jul_init(t_frt *d, t_args *arg);
+void	new_init(t_frt *d, t_args *arg);
 void	whichfract(t_frt *d);
 void	my_mlx_pixel_put(t_frt *data, int x, int y, int color);
 void	put2screen(t_frt *data);
@@ -123,9 +122,6 @@ void	print_command(void);
 void	e_string(void);
 void	errormand(void);
 void	ff(t_frt *d);
-void	clac2(t_frt *d);
-void	clac3(t_frt *d);
-void	clac5(t_frt *d);
 void	errornewt(void);
 int		ftsclose(void *data);
 int		check(char *str);

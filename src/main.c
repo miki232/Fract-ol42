@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 09:57:28 by mtoia             #+#    #+#             */
-/*   Updated: 2022/10/05 11:11:09 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/26 15:51:18 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ void	init_mlx(t_frt *d)
 	d->addr = mlx_get_data_addr(d->img, &d->btxp, &d->line_length, &d->endian);
 }
 
-void	input(t_frt *d)
+void	input(t_frt *d, t_args *arg)
 {
-	if (d->arg.argc == 1 || d->arg.argc > 4)
+	if (arg->argc == 1 || arg->argc > 4)
 		error();
-	if (d->arg.argc == 2)
+	if (arg->argc == 2)
 		error();
-	if (!ft_strncmp("Mandelbrot", d->arg.argv[1], 11))
-		mand_init(d);
-	else if (!ft_strncmp("Newton", d->arg.argv[1], 6))
-		new_init(d);
-	else if (!ft_strncmp("Julia", d->arg.argv[1], 5))
-		jul_init(d);
+	if (!ft_strncmp("Mandelbrot", arg->argv[1], 11))
+		mand_init(d, arg);
+	else if (!ft_strncmp("Newton", arg->argv[1], 6))
+		new_init(d, arg);
+	else if (!ft_strncmp("Julia", arg->argv[1], 5))
+		jul_init(d, arg);
 	else
 		error();
 }	
@@ -68,11 +68,11 @@ void	input(t_frt *d)
 int	main(int argc, char **argv)
 {
 	t_frt	d;
+	t_args	arg;
 
-	d.arg.argc = argc;
-	d.arg.argv = argv;
-	ft_printf("%d\n", ft_atoi(d.arg.argv[3]));
-	input(&d);
+	arg.argc = argc;
+	arg.argv = argv;
+	input(&d, &arg);
 	init_para(&d);
 	init_mlx(&d);
 	mlx_hook(d.win_ptr, 2, 1L << 0, keypress, &d);

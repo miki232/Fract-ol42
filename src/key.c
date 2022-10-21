@@ -6,7 +6,7 @@
 /*   By: mtoia <mtoia@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 10:55:08 by mtoia             #+#    #+#             */
-/*   Updated: 2022/10/05 11:10:39 by mtoia            ###   ########.fr       */
+/*   Updated: 2022/09/24 19:05:54 by mtoia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	down(t_frt *data)
 
 void	inv_up(t_frt *data)
 {
-	data->inc = data->inc + 0.2;
+	data->inc = data->inc + 0.01;
 	data->cre = data->cre + 0.001;
 	clear(data);
 	if (data->which_fract == 1)
@@ -45,7 +45,7 @@ void	inv_up(t_frt *data)
 
 void	inv_down(t_frt *data)
 {
-	data->inc = data->inc - 0.2;
+	data->inc = data->inc - 0.01;
 	data->cre = data->cre - 0.001;
 	clear(data);
 	if (data->which_fract == 1)
